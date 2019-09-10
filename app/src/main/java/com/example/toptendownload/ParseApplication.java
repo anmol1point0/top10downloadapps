@@ -9,7 +9,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 
 public class ParseApplication {
-    private static final String TAG = "ParseApplication";
+ //   private static final String TAG = "ParseApplication";
     private ArrayList<feedentry> applications;
 
     public ParseApplication() {
@@ -35,7 +35,7 @@ public class ParseApplication {
                 String tagname = xpp.getName();
                 switch (eventtype) {
                     case XmlPullParser.START_TAG:
-                        Log.d(TAG, "parse: Starting tag for " + tagname);
+            //            Log.d(TAG, "parse: Starting tag for " + tagname);
                         if ("entry".equalsIgnoreCase(tagname)) {
                             inentry = true;
                             currentrecord = new feedentry();
@@ -45,7 +45,7 @@ public class ParseApplication {
                         textvalue = xpp.getText();
                         break;
                     case XmlPullParser.END_TAG:
-                        Log.d(TAG, "parse: Ending tag for " + tagname);
+       //                 Log.d(TAG, "parse: Ending tag for " + tagname);
                         if (inentry) {
                             if ("entry".equalsIgnoreCase(tagname)) {
                                 applications.add(currentrecord);
@@ -68,10 +68,10 @@ public class ParseApplication {
                 }
                 eventtype = xpp.next();
             }
-            for (feedentry app : applications) {
-                Log.d(TAG, "************************ ");
-                Log.d(TAG, app.toString());
-            }
+//            for (feedentry app : applications) {
+//                Log.d(TAG, "************************ ");
+//                Log.d(TAG, app.toString());
+//            }
 
         } catch (Exception e) {
             status = false;
